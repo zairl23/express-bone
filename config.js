@@ -39,7 +39,7 @@ exports.emailSettings = {
     secure:true,
     auth: {
         user: '312748735@qq.com',
-        pass: 'tiancai123'          //qq独立密码
+        pass: ''          //qq独立密码
     }
 };
 exports.twofactor = false;
