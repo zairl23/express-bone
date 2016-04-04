@@ -52,7 +52,7 @@ lockit.on('signup', function(user, res) {
 app.get('/', function(req, res) {
   var kitty = new KittyModel({ name: 'Silence' });
   console.log(kitty.name); // 'Silence'
-  res.send('hello world,' + kitty.speak());
+  res.send('hello worlds,' + kitty.speak());
 });
 
 // launch

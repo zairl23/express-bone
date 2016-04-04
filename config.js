@@ -25,11 +25,44 @@ exports.forgotPassword = {
   tokenExpiration: '1 day',
   views: {
     forgotPassword: 'lockit/forgot-password.jade', // input field 'email' | POST /'forgotPassword.route' | local variable 'error'
-    newPassword: '',    // input field 'password' | POST /'forgotPassword.route'/#{token} | local variable 'error'
+    newPassword: 'lockit/new-password.jade',    // input field 'password' | POST /'forgotPassword.route'/#{token} | local variable 'error'
     changedPassword: '',// message that password has been changed successfully
     linkExpired: '',    // message that link has expired and maybe link to /'forgotPassword.route'
     sentEmail: ''       // message that email with token has been sent
   }
+};
+// email already taken template
+exports.emailSignupTaken = {
+  subject: 'Email already registered',
+  text: [
+    '<h2>Hello <%- username %></h2>',
+    'you or someone else tried to sign up for <%- appname %>.',
+    '<p>Your email is already registered and you cannot sign up twice.',
+    ' If you haven\'t tried to sign up, you can safely ignore this email. Everything is fine!</p>',
+    '<p>The <%- appname %> Team</p>'
+  ].join('')
+};
+
+// resend signup template
+exports.emailResendVerification = {
+  subject: 'Complete your registration',
+  text: [
+    '<h2>Hello <%- username %></h2>',
+    'here is the link again. <%- link %> to complete your registration.',
+    '<p>The <%- appname %> Team</p>'
+  ].join(''),
+  linkText: 'Click here'
+};
+
+// forgot password template
+exports.emailForgotPassword = {
+  subject: 'Reset your password',
+  text: [
+    '<h2>Hey <%- username %></h2>',
+    '<%- link %> to reset your password.',
+    '<p>The <%- appname %> Team</p>'
+  ].join(''),
+  linkText: 'Click here'
 };
 exports.emailType = 'nodemailer-smtp-transport';
 exports.emailSettings = {
