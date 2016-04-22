@@ -37,8 +37,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 // services
-var KittyModel = require('./services/KittyModel.js');
-
+var KittyService = require('./services/index.js');
+app.use(KittyService.router);
 // routes
 var lockit = new Lockit(config);
 app.use(lockit.router);
@@ -50,9 +50,7 @@ lockit.on('signup', function(user, res) {
 	res.send('Welcome!');
 });
 app.get('/', function(req, res) {
-  var kitty = new KittyModel({ name: 'Silence' });
-  console.log(kitty.name); // 'Silence'
-  res.send('hello worlds,' + kitty.speak());
+    res.send('hello, express-bone');
 });
 
 // launch
