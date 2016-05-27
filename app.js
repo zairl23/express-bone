@@ -7,7 +7,7 @@ var bodyParser = require("body-parser");
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var cookieSession = require('cookie-session');
-var config = require('./config.js');
+var lockitConfig = require('./config/lockit.js');
 var Lockit = require('lockit');
 // db
 var mongoose = require('mongoose');
