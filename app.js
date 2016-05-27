@@ -11,7 +11,7 @@ var lockitConfig = require('./config/lockit.js');
 var Lockit = require('lockit');
 // db
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost:27017/bone');
+mongoose.connect('mongodb://localhost:27017/test');
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
@@ -40,7 +40,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 var KittyService = require('./services/index.js');
 app.use(KittyService.router);
 // routes
-var lockit = new Lockit(config);
+var lockit = new Lockit(lockitConfig);
 app.use(lockit.router);
 lockit.on('logout', function(user, res) {
   res.redirect('/login');
