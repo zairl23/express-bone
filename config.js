@@ -75,6 +75,7 @@ exports.emailSettings = {
         pass: ''          //qq独立密码
     }
 };
+exports.emailFrom = '312748735@qq.com';
 exports.twofactor = false;
 
  //or if you want to use MongoDB
