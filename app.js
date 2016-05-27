@@ -10,13 +10,7 @@ var cookieSession = require('cookie-session');
 var lockitConfig = require('./config/lockit.js');
 var Lockit = require('lockit');
 // db
-var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost:27017/test');
-var db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function() {
-  console.log('connected into mongodb!');
-});
+
 
 // setting
 app.set("port", process.env.PORT || 3000);
@@ -37,8 +31,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 // services
-var KittyService = require('./services/index.js');
-app.use(KittyService.router);
+
 // routes
 var lockit = new Lockit(lockitConfig);
 app.use(lockit.router);
