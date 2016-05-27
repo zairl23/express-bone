@@ -5,3 +5,5 @@
 ### For test
 
     npm run dev
+
+### Orm: Sequelize

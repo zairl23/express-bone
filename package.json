@@ -13,7 +13,6 @@
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.15.0",
-    "bookshelf": "^0.9.5",
     "cookie-parser": "^1.4.1",
     "cookie-session": "^2.0.0-alpha.1",
     "couch-pwd": "0.0.1",
@@ -26,6 +25,7 @@
     "lockit-template-blank": "0.0.2",
     "lockit-utils": "^0.5.3",
     "morgan": "^1.7.0",
-    "mysql": "^2.10.2"
+    "mysql": "^2.10.2",
+    "sequelize": "^3.23.3"
   }
 }
