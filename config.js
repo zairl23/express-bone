@@ -1,3 +1,4 @@
+exports.appname = 'express-bone';
 // signup settings
 exports.signup = {
   route: '/signup',
@@ -17,7 +18,7 @@ exports.login = {
     logoutRoute: '/logout',
     views: {
         login: 'lockit/login.jade',
-        loggedOut: 'lockit/myLogout.jade' // add a logout listener , just not used @toto
+        loggedOut: 'lockit/logout.jade' // add a logout listener , just not used @toto
     }
 };
 exports.forgotPassword = {
@@ -26,9 +27,9 @@ exports.forgotPassword = {
   views: {
     forgotPassword: 'lockit/forgot-password.jade', // input field 'email' | POST /'forgotPassword.route' | local variable 'error'
     newPassword: 'lockit/new-password.jade',    // input field 'password' | POST /'forgotPassword.route'/#{token} | local variable 'error'
-    changedPassword: '',// message that password has been changed successfully
-    linkExpired: '',    // message that link has expired and maybe link to /'forgotPassword.route'
-    sentEmail: ''       // message that email with token has been sent
+    changedPassword: 'lockit/change-password-success.jade',// message that password has been changed successfully
+    linkExpired: 'lockit/link-expired.jade',    // message that link has expired and maybe link to /'forgotPassword.route'
+    sentEmail: 'lockit/forgot-password-send.jade'       // message that email with token has been sent
   }
 };
 // email already taken template
@@ -45,24 +46,24 @@ exports.emailSignupTaken = {
 
 // resend signup template
 exports.emailResendVerification = {
-  subject: 'Complete your registration',
+  subject: '完成您的注册',
   text: [
-    '<h2>Hello <%- username %></h2>',
-    'here is the link again. <%- link %> to complete your registration.',
-    '<p>The <%- appname %> Team</p>'
+    '<h2>您好！ <%- username %></h2>',
+    '这是 <%- link %> 完成注册的链接.',
+    '<p>来自: <%- appname %> </p>'
   ].join(''),
-  linkText: 'Click here'
+  linkText: '点击这里'
 };
 
 // forgot password template
 exports.emailForgotPassword = {
-  subject: 'Reset your password',
+  subject: '重置您的密码',
   text: [
-    '<h2>Hey <%- username %></h2>',
-    '<%- link %> to reset your password.',
-    '<p>The <%- appname %> Team</p>'
+    '<h2>您好！ <%- username %></h2>',
+    '<%- link %> 重置您的密码.',
+    '<p>来自： <%- appname %></p>'
   ].join(''),
-  linkText: 'Click here'
+  linkText: '点击这里'
 };
 exports.emailType = 'nodemailer-smtp-transport';
 exports.emailSettings = {
@@ -71,11 +72,11 @@ exports.emailSettings = {
     port: 465,
     secure:true,
     auth: {
-        user: '312748735@qq.com',
-        pass: ''          //qq独立密码
+        user: '3082784291@qq.com',
+        pass: 'kzbirhyierbkdhae'
     }
 };
-exports.emailFrom = '312748735@qq.com';
+exports.emailFrom = '3082784291@qq.com';
 exports.twofactor = false;
 
  //or if you want to use MongoDB
@@ -84,3 +85,10 @@ exports.twofactor = false;
    name: 'test',
    collection: 'users'  // collection name for MongoDB
  };
+
+ // MySQL
+ // exports.db = {
+ //   url: 'mysql://root:12345678@localhost:3306/',
+ //   name: 'dianxin',
+ //   collection: 'users'
+ // };
