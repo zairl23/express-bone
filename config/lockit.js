@@ -89,6 +89,6 @@ exports.twofactor = false;
  // MySQL
  exports.db = {
    url: 'mysql://root:12345678@localhost:3306/',
-   name: 'dianxin',
+   name: 'bone_development',
    collection: 'users'
  };

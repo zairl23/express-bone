@@ -6,8 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node app.js",
-    "dev": "nodemon app.js",
-    "pro": "pm2 start app.js --name 'express-bone'"
+    "dev": "SET NODE_ENV=development && nodemon app.js",
+    "pro": "SET NODE_ENV=production && pm2 start app.js --name 'express-bone'"
   },
   "author": "",
   "license": "ISC",

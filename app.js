@@ -9,9 +9,8 @@ var bodyParser = require('body-parser');
 var cookieSession = require('cookie-session');
 var lockitConfig = require('./config/lockit.js');
 var Lockit = require('lockit');
+
 // db
-
-
 // setting
 app.set("port", process.env.PORT || 3000);
 // view engine setup
@@ -43,7 +42,8 @@ lockit.on('signup', function(user, res) {
 	res.send('Welcome!');
 });
 app.get('/', function(req, res) {
-    res.send('hello, express-bone');
+	res.send(process.env.NODE_ENV);
+    // res.send('hello, express-bone');
 });
 
 // catch 404 and forward to error handler
