@@ -65,4 +65,5 @@ app.use(function(err, req, res, next) {
 
 
 // launch
-http.createServer(app).listen(app.get("port"));
+// http.createServer(app).listen(app.get("port"));
+module.exports = app;
