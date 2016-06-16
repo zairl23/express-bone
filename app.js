@@ -53,5 +53,4 @@ app.get('/', function(req, res) {
     res.send('hello, express-bone');
 });
 
-// launch
-http.createServer(app).listen(app.get("port"));
+module.exports = app;
