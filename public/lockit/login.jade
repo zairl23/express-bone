@@ -1,0 +1,28 @@
+doctype html
+html
+    body(lang='en')
+    .middle-box.text-center.loginscreen.animated.fadeInDown
+        head
+            link(href="/css/bootstrap.min.css", rel="stylesheet")
+            link(href="/css/animate.css", rel="stylesheet")
+            link#loadBefore(href="/css/style.css", rel="stylesheet")
+            meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        div
+            //img(href='/img/login.jpg')
+            h2(style='color: #fff') 芝麻开门
+            //p
+            //    | Perfectly designed and precisely prepared admin theme with over 50 pages with extra new web app views.
+            p(style='color: #fff') 欢迎登陆
+            form(action=action, method="POST", autocomplete="off")
+                .form-group
+                    input.form-control(type="text", id="login", name="login", placeholder="用户名", value=login)
+                .form-group
+                    input.form-control(type="password", id="password", name="password", placeholder="密码")
+                button.btn.btn-primary.block.full-width.m-b(type='submit', class="btn btn-primary btn-block", value="Login") 登陆
+                //a(ui-sref='forgot_password')
+                //    small 忘记密码?
+                //p.text-muted.text-center
+                //    small Do not have an account?
+                //a.btn.btn-sm.btn-white.btn-block(ui-sref='register') Create an account
+            p.m-t
+                //small Inspinia we app framework base on Bootstrap 3 © 2014

@@ -8,6 +8,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var cookieSession = require('cookie-session');
 var lockitConfig = require('./config/lockit.js');
+var utils = require('lockit-utils');
 var Lockit = require('lockit');
 // db
 var mongoose = require('mongoose');
@@ -21,7 +22,7 @@ db.once('open', function() {
 // setting
 app.set("port", process.env.PORT || 3000);
 // view engine setup
-app.set('views', path.join(__dirname, 'public/views'));
+app.set('views', path.join(__dirname, 'public'));
 app.set('view engine', 'jade');
 app.disable("x-powered-by");
 app.locals.appName = "Express Bone";
@@ -34,7 +35,7 @@ app.use(cookieSession({
 app.use(logger("dev"));
 app.use(bodyParser.json({limit : "1000kb"}));
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public/views')));
 
 // services
 var KittyService = require('./services/index.js');
@@ -49,8 +50,9 @@ lockit.on('signup', function(user, res) {
 	console.log('a new user signed up');
 	res.send('Welcome!');
 });
-app.get('/', function(req, res) {
-    res.send('hello, express-bone');
+app.get('/', utils.restrict(lockitConfig), function(req, res) {
+    // res.send('hello, express-bone');
+    res.render('index');
 });
 
 module.exports = app;
