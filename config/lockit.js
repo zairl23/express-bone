@@ -82,7 +82,7 @@ exports.twofactor = false;
  //or if you want to use MongoDB
  exports.db = {
    url: 'mongodb://localhost/',
-   name: 'test',
+   name: 'openthedoor',
    collection: 'users'  // collection name for MongoDB
  };
 
